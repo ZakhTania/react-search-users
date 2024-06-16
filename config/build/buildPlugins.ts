@@ -1,9 +1,9 @@
-import { Configuration } from "webpack";
-import HtmlWebpackPlugin from "html-webpack-plugin";
-import { BuildOptionsType } from "./types/types";
+import { Configuration } from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ESLintPlugin from 'eslint-webpack-plugin';
+import { BuildOptionsType } from './types/types';
 
-export function buildPlugins(
-  options: BuildOptionsType
-): Configuration["plugins"] {
-  return [new HtmlWebpackPlugin({ template: options.paths.html })];
+export function buildPlugins(options: BuildOptionsType): Configuration['plugins'] {
+    return [new HtmlWebpackPlugin({ template: options.paths.html }), 
+      new ESLintPlugin()];
 }
