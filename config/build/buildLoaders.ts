@@ -1,7 +1,6 @@
 import { ModuleOptions } from "webpack";
-import { BuildOptionsType } from "./types/types";
 
-export function buildLoaders(options: BuildOptionsType): ModuleOptions["rules"] {
+export function buildLoaders(): ModuleOptions["rules"] {
     return [
         {
           test: /\.tsx?$/,
