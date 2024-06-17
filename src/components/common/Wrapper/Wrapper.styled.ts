@@ -5,13 +5,11 @@ export const StyledWrap = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #1f2833;
-    height: 100vw;
 `;
 
 export const StyledContainer = styled.div`
     width: calc(100% - 120px);
-    height: 100%;
+    min-height: 100vw;
     background-color: #0b0c10;
-    padding: 20px;
+    padding: 30px;
 `;
