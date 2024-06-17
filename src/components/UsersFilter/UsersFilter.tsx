@@ -1,36 +1,40 @@
+import { FilterType } from '../../types/types';
 import Button from '../common/Button/Button';
 import Input from '../common/Input/Input';
 import Select from '../common/Select/Select';
 import Title from '../common/Title/Title';
 import { StyledSearchDiv } from './UsersFilter.slyled';
 
-
 type UsersFilterType = {
-    filter: {
-        sort: string;
-        query: string;
-    };
+    filter: FilterType;
     setFilter: (e: { sort: string; query: string }) => void;
+    onClick: () => void;
 };
 
-function UsersFilter({ filter, setFilter }: UsersFilterType) {
+function UsersFilter({ filter, setFilter, onClick }: UsersFilterType) {
     return (
         <>
             <Title>Пользователи</Title>
             <Select
                 value={filter.sort}
                 onChange={(selectedSort) => setFilter({ ...filter, sort: selectedSort })}
-                defaultValue="Сортировка по количеству репозиториев"
+                title="Сортировка"
                 options={[
-                    { value: 'ascending', name: 'По возрастанию' },
-                    { value: 'descending', name: 'По убыванию' }
+                    { value: 'asc', name: 'По возрастанию количества репозиториев' },
+                    { value: 'desc', name: 'По убыванию количества репозиториев' }
                 ]}
             />
             <StyledSearchDiv>
-                <Input type="text" placeholder="" />
-                <Button>Найти</Button>
+                <Input
+                    value={filter.query}
+                    type="text"
+                    placeholder="Введите логин пользлвателя"
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                        setFilter({ ...filter, query: e.target.value })
+                    }
+                />
+                <Button onClick={onClick}>Найти</Button>
             </StyledSearchDiv>
-            {/* <StyledLine /> */}
         </>
     );
 }
