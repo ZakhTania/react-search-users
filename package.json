@@ -14,6 +14,7 @@
     "author": "",
     "license": "ISC",
     "devDependencies": {
+        "@octokit/types": "^13.5.0",
         "@types/node": "^20.14.2",
         "@types/react": "^18.3.3",
         "@types/react-dom": "^18.3.0",
@@ -38,6 +39,7 @@
         "webpack-dev-server": "^5.0.4"
     },
     "dependencies": {
+        "@octokit/core": "^6.1.2",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
         "react-router-dom": "^6.23.1",
