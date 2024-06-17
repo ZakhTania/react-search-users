@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 
+
+export const StyledContainer = styled.div`
+    display: flex;
+    gap: 20px;
+    align-items: center;
+`;
+
 export const StyledSelect = styled.select`
     -webkit-appearance: none; /* Стиль для Safari */
     -moz-appearance: none; /* Стиль для Firefox */

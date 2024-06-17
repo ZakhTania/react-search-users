@@ -1,27 +1,30 @@
-import { StyledOption, StyledSelect } from "./Select.styled";
-
+import { StyledContainer, StyledOption, StyledSelect } from './Select.styled';
 
 type OptionType = {
-    value: string;
+    value: string | number;
     name: string;
-}
+};
 type SelectType = {
     options: Array<OptionType>;
-    defaultValue: string; 
-    value: string; 
-    onChange: (e:string) => void;
-}
-function Select({ options, defaultValue, value, onChange }:SelectType) {
+    title: string;
+    value: string;
+    onChange: (e: string) => void;
+};
+function Select({ options, title, value, onChange }: SelectType) {
     return (
-      <StyledSelect value={value} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => onChange(e.target.value)}>
-        <option disabled value="">{defaultValue}</option>
-        {/* <StyledOption disabled value="">{defaultValue}</StyledOption > */}
-
-        {options.map((option) => (
-          <StyledOption  key={option.value} value={option.value}>{option.name}</StyledOption>
-        ))}
-      </StyledSelect>
+        <StyledContainer>
+        <h3>{title}</h3>
+            <StyledSelect
+                value={value}
+                onChange={(e: React.ChangeEvent<HTMLSelectElement>) => onChange(e.target.value)}>
+                {options.map((option) => (
+                    <StyledOption key={option.value} value={option.value}>
+                        {option.name}
+                    </StyledOption>
+                ))}
+            </StyledSelect>
+        </StyledContainer>
     );
-  }
-  
-  export default Select;
+}
+
+export default Select;
