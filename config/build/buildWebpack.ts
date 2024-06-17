@@ -14,8 +14,7 @@ export function buildWebpack(options: BuildOptionsType): Configuration {
     entry: paths.entry,
     output: {
       path: paths.output,
-      filename: "[name].[contenthash].js",
-      clean: true,
+      filename: "main.js",
     },
     plugins: buildPlugins(options),
     module: {
