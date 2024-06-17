@@ -1,11 +1,16 @@
 import { Link } from 'react-router-dom';
 import { AppRoutes } from '../routes/appRouters';
+import { GlobalSlyle } from '../Global.styled';
+import Wrapper from '../components/common/Wrapper/Wrapper';
 
 function HomePage() {
     return (
-        <div>
-            <Link to={AppRoutes.USERS}>Поиск пользователей</Link>
-        </div>
+        <>
+            <GlobalSlyle />
+            <Wrapper>
+                <Link to={AppRoutes.USERS}>Поиск пользователей</Link>
+            </Wrapper>
+        </>
     );
 }
 
