@@ -1,29 +1,18 @@
 import { FilterType } from '../../types/types';
-import Button from '../common/Button/Button';
 import Input from '../common/Input/Input';
 import Select from '../common/Select/Select';
 import Title from '../common/Title/Title';
-import { StyledSearchDiv } from './UsersFilter.slyled';
+import { StyledSearchDiv, StyledSelectsWrap } from './UsersFilter.slyled';
 
 type UsersFilterType = {
     filter: FilterType;
-    setFilter: (e: { sort: string; query: string }) => void;
-    onClick: () => void;
+    setFilter: (e: FilterType) => void;
 };
 
-function UsersFilter({ filter, setFilter, onClick }: UsersFilterType) {
+function UsersFilter({ filter, setFilter }: UsersFilterType) {
     return (
         <>
-            <Title>Пользователи</Title>
-            <Select
-                value={filter.sort}
-                onChange={(selectedSort) => setFilter({ ...filter, sort: selectedSort })}
-                title="Сортировка"
-                options={[
-                    { value: 'asc', name: 'По возрастанию количества репозиториев' },
-                    { value: 'desc', name: 'По убыванию количества репозиториев' }
-                ]}
-            />
+            <Title>Поиск пользователей</Title>
             <StyledSearchDiv>
                 <Input
                     value={filter.query}
@@ -33,8 +22,29 @@ function UsersFilter({ filter, setFilter, onClick }: UsersFilterType) {
                         setFilter({ ...filter, query: e.target.value })
                     }
                 />
-                <Button onClick={onClick}>Найти</Button>
+                {/* <Button onClick={onClick}>Найти</Button> */}
             </StyledSearchDiv>
+            <StyledSelectsWrap>
+                <Select
+                    value={filter.sort}
+                    onChange={(selectedSort) => setFilter({ ...filter, sort: selectedSort })}
+                    title="Количество репозиториев"
+                    options={[
+                        { value: 'asc', name: 'По возрастанию' },
+                        { value: 'desc', name: 'По убыванию' }
+                    ]}
+                />
+                <Select
+                    value={filter.perPage}
+                    onChange={(selectedCount) => setFilter({ ...filter, perPage: selectedCount })}
+                    title="Показывать по"
+                    options={[
+                        { value: 15, name: '15' },
+                        { value: 30, name: '30' },
+                        { value: 60, name: '60' }
+                    ]}
+                />
+            </StyledSelectsWrap>
         </>
     );
 }
