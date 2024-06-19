@@ -1,6 +1,7 @@
 export type FilterType = {
     sort: string;
     query: string;
+    perPage: string;
 };
 export type UserType = {
     login: string;
@@ -12,4 +13,9 @@ export type UserType = {
     html_url: string;
     followers_url: string;
     suspended_at?: string;
+};
+
+export type PagesType = {
+    currentPage: number;
+    totalPages: number;
 };
