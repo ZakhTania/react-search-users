@@ -13,7 +13,7 @@ type SelectType = {
 function Select({ options, title, value, onChange }: SelectType) {
     return (
         <StyledContainer>
-        <h3>{title}</h3>
+        <h2>{title}</h2>
             <StyledSelect
                 value={value}
                 onChange={(e: React.ChangeEvent<HTMLSelectElement>) => onChange(e.target.value)}>

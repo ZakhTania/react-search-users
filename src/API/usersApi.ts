@@ -21,7 +21,7 @@ export async function getUsers({
         page
     });
     
-    const data: listUsersResponse['data'] = await response.data;
+    const data: listUsersResponse['data'] = response.data;
 
     return data;
 }
