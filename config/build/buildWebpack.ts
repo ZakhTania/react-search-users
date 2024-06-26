@@ -14,14 +14,13 @@ export function buildWebpack(options: BuildOptionsType): Configuration {
     entry: paths.entry,
     output: {
       path: paths.output,
-      filename: "[name].[contenthash].js",
-      clean: true,
+      filename: "main.js",
     },
     plugins: buildPlugins(options),
     module: {
-      rules: buildLoaders(options),
+      rules: buildLoaders(),
     },
-    resolve: buildResolve(options),
+    resolve: buildResolve(),
     devtool: isDev ? "inline-source-map" : false,
     devServer: isDev ? buildDevServer(options) : undefined,
   };
